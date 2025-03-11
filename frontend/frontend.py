@@ -55,7 +55,7 @@ def get_pet_advice(user_query):
     try:
         payload = {"user_query": user_query}
         # เปลี่ยน URL ให้ตรงกับที่ตั้งของ backend API
-        response = requests.post("http://127.0.0.1:5000/generate", json=payload)
+        response = requests.post("http://35.247.140.245:8087/generate", json=payload)
         if response.status_code == 200:
             data = response.json()
             answer = data.get("answer", "No answer received.")
@@ -394,4 +394,4 @@ with gr.Blocks(css="""
         outputs=[current_session_state, history_state, chat_display]
     )
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=8085, share=False)

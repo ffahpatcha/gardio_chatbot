@@ -4,19 +4,20 @@ import os
 import together
 
 # ใช้ import ใหม่จาก langchain_community แทนการ import แบบเดิม
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
 from langchain_community.vectorstores import FAISS
 import os
 import together
 from dotenv import load_dotenv
 
 # โหลดค่า environment variables จากไฟล์ .env
-load_dotenv()
+
 
 # ----- ตั้งค่า API Key และโมเดล -----
 # ไม่ต้องเขียน os.environ["TOGETHER_API_KEY"] = "..." ตรงนี้
 model_name = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
-together.api_key = os.getenv("TOGETHER_API_KEY")
+together.api_key = "3c73cda46d9b41c8a1c58cc34871a660e50e94a220444eb72fb2bb3807f4c24e"
 
 # จากนี้ไปคุณสามารถใช้งาน together.api_key ได้ตามปกติ
 
@@ -98,10 +99,10 @@ def extract_context(retrieved_docs):
     return context.strip()
 
 # ----- โหลด Vector Store ด้วย FAISS -----
-# ตั้งค่า embeddings โดยใช้โมเดล BAAI/bge-m3
+# ตั้งค่า embeddings โดยใช้โมเดล BAAI/bge-m3from langchain_huggingface import HuggingFaceEmbeddings
 embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
 faiss_index = FAISS.load_local(
-    r"C:\year3term2\gardio_chatbot2 - Copy\vector_store\faiss_index",  # แก้ไข path ให้ตรงกับตำแหน่งไฟล์ index ของคุณ
+    r"./faiss_index",  # แก้ไข path ให้ตรงกับตำแหน่งไฟล์ index ของคุณ
     embeddings,
     index_name="index",
     allow_dangerous_deserialization=True
@@ -134,4 +135,4 @@ def generate():
 
 if __name__ == '__main__':
     # รัน Flask API บนพอร์ต 5000 และให้เชื่อมต่อกับทุก IP (สำหรับ Docker หรือ VM)
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=8087)
