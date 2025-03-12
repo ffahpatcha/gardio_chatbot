@@ -3,8 +3,6 @@
 ## Overview
 Vector Store ใน Gardio Chatbot ทำหน้าที่เป็นระบบจัดเก็บข้อมูลเวกเตอร์ที่ใช้ในการค้นหาข้อมูลจากเอกสาร ระบบนี้ใช้ FAISS เป็นหลักในการสร้างและดึงข้อมูลที่เกี่ยวข้อง โดยมีโครงสร้างการทำงานดังแผนภาพด้านล่าง:
 
-![Document Processing Pipeline](image.png)
-
 ### Document Processing Pipeline
 1. **Local Documents** - โหลดเอกสารจากแหล่งข้อมูลภายในระบบ
 2. **Unstructured Loader** - ดึงข้อมูลจากเอกสารที่ไม่มีโครงสร้างแน่นอน
