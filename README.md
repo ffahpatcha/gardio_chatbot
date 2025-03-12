@@ -29,6 +29,4 @@ PawPal คือระบบแชทบอทที่ใช้เทคโน�
 ## 📦 Installation
 ```bash
 git clone https://github.com/ffahpatcha/gardio_chatbot/
-cd pawpal-chatbot
-pip install -r requirements.txt
-python app.py
+cd gardio_chatbot
