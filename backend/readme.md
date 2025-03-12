@@ -25,14 +25,6 @@ cd gardio_chatbot/backend
 pip install -r requirements.txt
 ```
 
-### 3. Run the Backend Server
-
-ใช้ Docker:
-```bash
-docker build -t gardio-backend .
-docker run -p 5000:5000 gardio-backend
-```
-
 ## FAISS Index
 ไฟล์ `faiss_index/index.faiss` และ `faiss_index/index.pkl` ใช้สำหรับเก็บเวกเตอร์ที่ใช้ในกระบวนการค้นหาคล้ายกัน (vector search)
 
