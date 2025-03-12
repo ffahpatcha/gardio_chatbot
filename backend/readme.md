@@ -25,8 +25,21 @@ cd gardio_chatbot/backend
 pip install -r requirements.txt
 ```
 
-## FAISS Index
-ไฟล์ `faiss_index/index.faiss` และ `faiss_index/index.pkl` ใช้สำหรับเก็บเวกเตอร์ที่ใช้ในกระบวนการค้นหาคล้ายกัน (vector search)
 
 ## API Endpoints
-- `POST /generate` - ส่งข้อความค้นหาเพื่อให้ chatbot ตอบกลับโดยใช้ FAISS
+- `POST /generate` - รับ JSON payload ที่มี key `user_query` และคืนคำตอบโดยใช้โมเดลภาษาพร้อมข้อมูลที่ค้นหา
+
+## System Components
+- **FAISS Vector Store**: ใช้จัดเก็บเวกเตอร์ของเอกสารสำหรับการค้นหาข้อมูลที่ใกล้เคียง
+- **HuggingFace Embeddings (BAAI/bge-m3)**: ใช้สำหรับแปลงข้อความเป็นเวกเตอร์
+- **LLM Model (meta-llama/Llama-3.3-70B-Instruct-Turbo-Free)**: ใช้ Together API ในการสร้างคำตอบ
+
+## Document Processing Workflow
+1. รับ `user_query` จากผู้ใช้ผ่าน API `/generate`
+2. ค้นหาเอกสารที่เกี่ยวข้องผ่าน FAISS
+3. สร้าง `context` จากเอกสารที่ดึงมา
+4. ใช้ Together API กับโมเดลภาษาสร้างคำตอบ
+5. ส่งคำตอบกลับไปยังผู้ใช้
+
+## Notes
+- ต้องตั้งค่า `TOGETHER_API_KEY` ในไฟล์ `.env`
