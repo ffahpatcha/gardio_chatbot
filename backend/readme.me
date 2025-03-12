@@ -35,3 +35,47 @@ FAISS Index
 API Endpoints
 GET /status - ตรวจสอบสถานะของเซิร์ฟเวอร์
 POST /query - ส่งข้อความค้นหาเพื่อให้ chatbot ตอบกลับโดยใช้ FAISS
+---------
+ในไฟล์ readme.md ของ backend ควรอธิบายโครงสร้างและวิธีใช้งานของระบบ gardio_chatbot โดยเน้นที่ส่วน backend รวมถึงวิธีการติดตั้งและรันระบบ ตัวอย่างเนื้อหาที่สามารถใส่ได้:
+
+---
+
+Gardio Chatbot - Backend
+Overview
+Backend ของ Gardio Chatbot รองรับการทำงานเกี่ยวกับการจัดเก็บและค้นหาข้อมูลเวกเตอร์โดยใช้ FAISS, ประมวลผลข้อมูล, และให้บริการ API สำหรับการโต้ตอบกับ chatbot
+
+Folder Structure
+backend/
+│── faiss_index/       # เก็บไฟล์ดัชนี FAISS และ pickle
+│── app.py             # ไฟล์หลักของ Flask API
+│── Dockerfile         # ไฟล์สำหรับสร้าง Docker container
+│── requirements.txt   # รายชื่อ dependencies ที่จำเป็น
+│── readme.md          # คำอธิบายโปรเจกต์
+
+
+Installation
+Clone the repository
+git clone https://github.com/your-repo/gardio_chatbot.git
+cd gardio_chatbot/backend
+
+
+Install dependencies
+pip install -r requirements.txt
+
+
+Run the Backend Server
+python app.py
+
+หรือหากใช้ Docker:
+docker build -t gardio-backend .
+docker run -p 5000:5000 gardio-backend
+
+
+FAISS Index
+ไฟล์ faiss_index/index.faiss และ faiss_index/index.pkl ใช้สำหรับเก็บเวกเตอร์ที่ใช้ในกระบวนการค้นหาคล้ายกัน (vector search)
+
+API Endpoints
+GET /status - ตรวจสอบสถานะของเซิร์ฟเวอร์
+POST /query - ส่งข้อความค้นหาเพื่อให้ chatbot ตอบกลับโดยใช้ FAISS
+
+---
