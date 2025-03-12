@@ -1,4 +1,4 @@
-# Gardio Chatbot - Backend
+# Backend
 
 ## Overview
 Backend ของ Gardio Chatbot ทำหน้าที่เป็นเซิร์ฟเวอร์สำหรับให้บริการ API ที่เกี่ยวข้องกับการค้นหาข้อมูลเวกเตอร์โดยใช้ FAISS และการประมวลผลข้อความเพื่อโต้ตอบกับ chatbot ระบบนี้รองรับการทำงานผ่าน Flask API และสามารถ deploy ได้ผ่าน Docker
