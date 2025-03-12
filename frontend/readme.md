@@ -1,4 +1,4 @@
-# Gardio Chatbot - Frontend
+# Frontend
 
 ## Overview
 Frontend ของ Chatbot ทำหน้าที่เป็นส่วนติดต่อผู้ใช้ (UI) สำหรับโต้ตอบกับระบบ chatbot โดยใช้ Flask เป็น Web Framework สามารถรันได้ผ่าน Python หรือ deploy ด้วย Docker
