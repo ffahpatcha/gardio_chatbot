@@ -31,8 +31,8 @@ pip install -r requirements.txt
 
 ## System Components
 - **FAISS Vector Store**: ใช้จัดเก็บเวกเตอร์ของเอกสารสำหรับการค้นหาข้อมูลที่ใกล้เคียง
-- **HuggingFace Embeddings (BAAI/bge-m3)**: ใช้สำหรับแปลงข้อความเป็นเวกเตอร์
-- **LLM Model (meta-llama/Llama-3.3-70B-Instruct-Turbo-Free)**: ใช้ Together API ในการสร้างคำตอบ
+- **HuggingFace Embeddings ([BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3))**: ใช้สำหรับแปลงข้อความเป็นเวกเตอร์
+- **LLM Model ([meta-llama/Llama-3.3-70B-Instruct-Turbo-Free](https://www.together.ai/models/llama-3-3-70b-free))**: ใช้ Together API ในการสร้างคำตอบ
 
 ## Document Processing Workflow
 1. รับ `user_query` จากผู้ใช้ผ่าน API `/generate`
